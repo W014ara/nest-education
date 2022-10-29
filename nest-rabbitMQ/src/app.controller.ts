@@ -3,7 +3,6 @@ import { AppService } from "./app.service";
 import { URL } from "./app.constants";
 import { PlainBody } from "./helpers/PlainBody.decorator";
 import { IQueueDictMsg } from "./app.model";
-const amqp = require("amqplib/callback_api");
 
 @Controller()
 export class AppController {
@@ -50,6 +49,7 @@ export class AppController {
          queue: queue,
          durable: true,
          noAck: true,
+         closeConTime: 500,
       });
    }
 }
